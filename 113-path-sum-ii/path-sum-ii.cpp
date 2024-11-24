@@ -27,19 +27,17 @@ public:
         }
         else
         {
-            if(root->left!=NULL)
-            {
-                getsum(root->left,targetsum-root->val,arr,result);
-            }
-            if(root->right!=NULL)
-            {
-                getsum(root->right,targetsum-root->val,arr,result);
-            }
+            getsum(root->left,targetsum-root->val,arr,result);
+            getsum(root->right,targetsum-root->val,arr,result);
         }
         arr.pop_back();
     }
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
         vector<vector<int>>result;
+        if(root==NULL)
+        {
+            return result;
+        }
         vector<int>arr;
         getsum(root,targetSum,arr,result);
         return result;
