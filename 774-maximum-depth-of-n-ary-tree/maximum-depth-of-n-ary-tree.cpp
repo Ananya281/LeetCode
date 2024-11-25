@@ -25,17 +25,11 @@ public:
         {
             return 0;
         }
-        int n=root->children.size();
-        vector<int>arr(n);
-        for(int i=0;i<n;i++)
-        {
-            arr[i]=maxDepth(root->children[i]);
-        }
         int maxi=0;
-        for(int i=0;i<n;i++)
+        for(auto it:root->children)
         {
-            maxi=max(maxi,arr[i]);
+            maxi=max(maxi,maxDepth(it));
         }
-        return maxi+1;
+        return 1+maxi;
     }
 };
