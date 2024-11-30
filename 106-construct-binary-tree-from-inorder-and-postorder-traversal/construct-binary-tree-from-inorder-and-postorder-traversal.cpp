@@ -17,9 +17,9 @@ public:
         {
             mpp[inorder[i]]=i;
         }
-        return buildtree(postorder,0,postorder.size()-1,inorder,0,inorder.size()-1,mpp);
+        return buildtree(postorder,0,postorder.size()-1,inorder,0,inorder.size(),mpp);
     }
-    TreeNode* buildtree(vector<int>&postorder,int poststart,int postend,vector<int>&inorder,int instart,int inend,map<int,int>&mpp)
+    TreeNode* buildtree(vector<int>& postorder,int poststart, int postend, vector<int>& inorder, int instart, int inend,map<int,int>&mpp)
     {
         if(poststart>postend||instart>inend)
         {
