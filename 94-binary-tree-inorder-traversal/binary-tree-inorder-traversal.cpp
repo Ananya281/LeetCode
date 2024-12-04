@@ -18,13 +18,12 @@ public:
             return inorder;
         }
         stack<TreeNode*>st;
-        TreeNode* node=root;
         while(true)
         {
-            if(node!=NULL)
+            if(root!=NULL)
             {
-                st.push(node);
-                node=node->left;
+                st.push(root);
+                root=root->left;
             }
             else
             {
@@ -32,10 +31,10 @@ public:
                 {
                     break;
                 }
-                node=st.top();
+                root=st.top();
                 st.pop();
-                inorder.push_back(node->val);
-                node=node->right;
+                inorder.push_back(root->val);
+                root=root->right;
             }
         }
         return inorder;
