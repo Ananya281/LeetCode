@@ -17,25 +17,33 @@ public:
         {
             return inorder;
         }
-        stack<TreeNode*>st;
-        while(true)
+        TreeNode*curr=root;
+        while(curr!=NULL)
         {
-            if(root!=NULL)
+            if(curr->left==NULL)
             {
-                st.push(root);
-                root=root->left;
+                inorder.push_back(curr->val);
+                curr=curr->right;
             }
             else
             {
-                if(st.empty())
+                TreeNode*prev=curr->left;
+                while(prev->right!=NULL && prev->right!=curr)
                 {
-                    break;
+                    prev=prev->right;
                 }
-                root=st.top();
-                st.pop();
-                inorder.push_back(root->val);
-                root=root->right;
-            }
+                if(prev->right==NULL)
+                {
+                    prev->right=curr;
+                    curr=curr->left;
+                }
+                else
+                {   
+                    prev->right=NULL;
+                    inorder.push_back(curr->val);
+                    curr=curr->right;
+                }
+            }   
         }
         return inorder;
     }
