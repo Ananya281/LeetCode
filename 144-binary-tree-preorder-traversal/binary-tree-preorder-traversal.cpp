@@ -17,22 +17,35 @@ public:
         {
             return preorder;
         }
-        stack<TreeNode*>st;
-        st.push(root);
-            while(!st.empty())
+        TreeNode*curr=root;
+        while(curr!=NULL)
+        {
+            if(curr->left==NULL)
             {
-                TreeNode* node=st.top();
-                st.pop();
-                preorder.push_back(node->val);
-                if(node->right!=NULL)
+                preorder.push_back(curr->val);
+                curr=curr->right;
+            }
+            else
+            {
+                TreeNode*prev=curr->left;
+                while(prev->right!=NULL && prev->right!=curr)
                 {
-                    st.push(node->right);
+                    prev=prev->right;
                 }
-                if(node->left!=NULL)
+                if(prev->right==NULL)
                 {
-                    st.push(node->left);
+                    preorder.push_back(curr->val);
+                    prev->right=curr;
+                    // preorder.push_back(curr->val);
+                    curr=curr->left;
+                }
+                else
+                {
+                    prev->right=NULL;
+                    curr=curr->right;
                 }
             }
+        }
         return preorder;
     }
 };
