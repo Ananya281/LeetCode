@@ -22,11 +22,11 @@ public:
         while(!q.empty())
         {
             int n=q.size();
-            vector<int>temp;
             for(int i=0;i<n;i++)
             {
                 TreeNode*node=q.front();
                 q.pop();
+                total++;
                 if(node->left)
                 {
                     q.push(node->left);
@@ -35,9 +35,7 @@ public:
                 {
                     q.push(node->right);
                 }
-                temp.push_back(node->val);
             }
-            total=total+temp.size();
         }
         return total;
     }
