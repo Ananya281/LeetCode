@@ -36,31 +36,31 @@ Each folder contains:
 ## 🚀 Topics Covered
 
 ### Trees
-- [104-maximum-depth-of-binary-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/104-maximum-depth-of-binary-tree)
-- [101-symmetric-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/101-symmetric-tree)
-- [226-invert-binary-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/226-invert-binary-tree)
-- [543-diameter-of-binary-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/543-diameter-of-binary-tree)
+- [104-maximum-depth-of-binary-tree](./104-maximum-depth-of-binary-tree)
+- [101-symmetric-tree](./101-symmetric-tree)
+- [226-invert-binary-tree](./226-invert-binary-tree)
+- [543-diameter-of-binary-tree](./543-diameter-of-binary-tree)
 
 ### Binary Search Trees (BST)
-- [98-validate-binary-search-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/98-validate-binary-search-tree)
-- [109-convert-sorted-list-to-binary-search-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/109-convert-sorted-list-to-binary-search-tree)
-- [235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/235-lowest-common-ancestor-of-a-binary-search-tree)
+- [98-validate-binary-search-tree](./98-validate-binary-search-tree)
+- [109-convert-sorted-list-to-binary-search-tree](./109-convert-sorted-list-to-binary-search-tree)
+- [235-lowest-common-ancestor-of-a-binary-search-tree](./235-lowest-common-ancestor-of-a-binary-search-tree)
 
 ### Arrays
-- [1-two-sum](https://github.com/Ananya281/LeetCode-Solutions/tree/main/1-two-sum)
-- [189-rotate-array](https://github.com/Ananya281/LeetCode-Solutions/tree/main/189-rotate-array)
-- [268-missing-number](https://github.com/Ananya281/LeetCode-Solutions/tree/main/268-missing-number)
+- [1-two-sum](./1-two-sum)
+- [189-rotate-array](./189-rotate-array)
+- [268-missing-number](./268-missing-number)
 
 ### Dynamic Programming
-- [124-binary-tree-maximum-path-sum](https://github.com/Ananya281/LeetCode-Solutions/tree/main/124-binary-tree-maximum-path-sum)
+- [124-binary-tree-maximum-path-sum](./124-binary-tree-maximum-path-sum)
 
 ### Graphs
-- [893-all-nodes-distance-k-in-binary-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/893-all-nodes-distance-k-in-binary-tree)
+- [893-all-nodes-distance-k-in-binary-tree](./893-all-nodes-distance-k-in-binary-tree)
 
 ### Other Problems
-- [3-longest-substring-without-repeating-characters](https://github.com/Ananya281/LeetCode-Solutions/tree/main/3-longest-substring-without-repeating-characters)
-- [297-serialize-and-deserialize-binary-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/297-serialize-and-deserialize-binary-tree)
-- [3509-k-th-largest-perfect-subtree-size-in-binary-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/3509-k-th-largest-perfect-subtree-size-in-binary-tree)
+- [3-longest-substring-without-repeating-characters](./3-longest-substring-without-repeating-characters)
+- [297-serialize-and-deserialize-binary-tree](./297-serialize-and-deserialize-binary-tree)
+- [3509-k-th-largest-perfect-subtree-size-in-binary-tree](./3509-k-th-largest-perfect-subtree-size-in-binary-tree)
 
 ...and many more!
 
