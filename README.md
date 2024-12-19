@@ -66,13 +66,6 @@ Each folder contains:
 
 ---
 
-## 📊 Repository Stats
-
-- **Total Problems Solved:** 50+
-- **Total Commits:** 141
-
----
-
 ## 🛠 How to Use
 
 1. Clone the repository:
@@ -98,12 +91,6 @@ Each folder contains:
 ## 🤝 Contributing
 
 While this is currently a personal project, suggestions and pull requests are welcome! Fork the repository, make your changes, and submit a PR for review.
-
----
-
-## 📜 License
-
-This repository is licensed under the MIT License. You are free to use the solutions with proper attribution.
 
 ---
 
