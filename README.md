@@ -57,6 +57,11 @@ Each folder contains:
 ### Graphs
 - [893-all-nodes-distance-k-in-binary-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/893-all-nodes-distance-k-in-binary-tree)
 
+### Other Problems
+- [3-longest-substring-without-repeating-characters](https://github.com/Ananya281/LeetCode-Solutions/tree/main/3-longest-substring-without-repeating-characters)
+- [297-serialize-and-deserialize-binary-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/297-serialize-and-deserialize-binary-tree)
+- [3509-k-th-largest-perfect-subtree-size-in-binary-tree](https://github.com/Ananya281/LeetCode-Solutions/tree/main/3509-k-th-largest-perfect-subtree-size-in-binary-tree)
+
 ...and many more!
 
 ---
