@@ -2,22 +2,22 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         int n=nums.size();
-        int pref=1;
-        int suff=1;
         int ans=INT_MIN;
         for(int i=0;i<n;i++)
         {
-            if(pref==0)
+            int prod=1;
+            for(int j=i;j<n;j++)
             {
-                pref=1;
+                prod=prod*nums[j];
+                if(prod>ans)
+                {
+                    ans=prod;
+                }
             }
-            if(suff==0)
+            if(prod>ans)
             {
-                suff=1;
+                ans=prod;
             }
-            pref=pref*nums[i];
-            suff=suff*nums[n-1-i];
-            ans=max(ans,max(pref,suff));
         }
         return ans;
     }
