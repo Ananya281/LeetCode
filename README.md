@@ -16,7 +16,7 @@ This repository serves as a personal archive of my journey through solving algor
 
 ---
 
-## 📂 Repository Structure
+## 🗂 Repository Structure
 
 The repository is organized into folders, each named according to the format:
 
@@ -36,33 +36,74 @@ Each folder contains:
 ## 🚀 Topics Covered
 
 ### Trees
-- [104-maximum-depth-of-binary-tree](./104-maximum-depth-of-binary-tree)
+- [100-same-tree](./100-same-tree)
 - [101-symmetric-tree](./101-symmetric-tree)
+- [1029-vertical-order-traversal-of-a-binary-tree](./1029-vertical-order-traversal-of-a-binary-tree)
+- [103-binary-tree-zigzag-level-order-traversal](./103-binary-tree-zigzag-level-order-traversal)
+- [104-maximum-depth-of-binary-tree](./104-maximum-depth-of-binary-tree)
+- [105-construct-binary-tree-from-preorder-and-inorder-traversal](./105-construct-binary-tree-from-preorder-and-inorder-traversal)
+- [106-construct-binary-tree-from-inorder-and-postorder-traversal](./106-construct-binary-tree-from-inorder-and-postorder-traversal)
+- [110-balanced-binary-tree](./110-balanced-binary-tree)
+- [111-minimum-depth-of-binary-tree](./111-minimum-depth-of-binary-tree)
+- [114-flatten-binary-tree-to-linked-list](./114-flatten-binary-tree-to-linked-list)
+- [199-binary-tree-right-side-view](./199-binary-tree-right-side-view)
+- [222-count-complete-tree-nodes](./222-count-complete-tree-nodes)
 - [226-invert-binary-tree](./226-invert-binary-tree)
 - [543-diameter-of-binary-tree](./543-diameter-of-binary-tree)
+- [662-maximum-width-of-binary-tree](./662-maximum-width-of-binary-tree)
+- [144-binary-tree-preorder-traversal](./144-binary-tree-preorder-traversal)
+- [145-binary-tree-postorder-traversal](./145-binary-tree-postorder-traversal)
+- [775-n-ary-tree-preorder-traversal](./775-n-ary-tree-preorder-traversal)
+- [764-n-ary-tree-level-order-traversal](./764-n-ary-tree-level-order-traversal)
+- [774-maximum-depth-of-n-ary-tree](./774-maximum-depth-of-n-ary-tree)
 
 ### Binary Search Trees (BST)
 - [98-validate-binary-search-tree](./98-validate-binary-search-tree)
 - [109-convert-sorted-list-to-binary-search-tree](./109-convert-sorted-list-to-binary-search-tree)
+- [230-kth-smallest-element-in-a-bst](./230-kth-smallest-element-in-a-bst)
 - [235-lowest-common-ancestor-of-a-binary-search-tree](./235-lowest-common-ancestor-of-a-binary-search-tree)
+- [236-lowest-common-ancestor-of-a-binary-tree](./236-lowest-common-ancestor-of-a-binary-tree)
+- [783-search-in-a-binary-search-tree](./783-search-in-a-binary-search-tree)
+- [784-insert-into-a-binary-search-tree](./784-insert-into-a-binary-search-tree)
 
 ### Arrays
 - [1-two-sum](./1-two-sum)
+- [53-maximum-subarray](./53-maximum-subarray)
+- [54-spiral-matrix](./54-spiral-matrix)
+- [88-merge-sorted-array](./88-merge-sorted-array)
+- [118-pascals-triangle](./118-pascals-triangle)
+- [119-pascals-triangle-ii](./119-pascals-triangle-ii)
 - [189-rotate-array](./189-rotate-array)
 - [268-missing-number](./268-missing-number)
+- [283-move-zeroes](./283-move-zeroes)
+- [31-next-permutation](./31-next-permutation)
+- [48-rotate-image](./48-rotate-image)
+- [1019-squares-of-a-sorted-array](./1019-squares-of-a-sorted-array)
+- [3-longest-substring-without-repeating-characters](./3-longest-substring-without-repeating-characters)
 
 ### Dynamic Programming
+- [121-best-time-to-buy-and-sell-stock](./121-best-time-to-buy-and-sell-stock)
 - [124-binary-tree-maximum-path-sum](./124-binary-tree-maximum-path-sum)
+- [152-maximum-product-subarray](./152-maximum-product-subarray)
+- [523-continuous-subarray-sum](./523-continuous-subarray-sum)
+- [713-subarray-product-less-than-k](./713-subarray-product-less-than-k)
+- [560-subarray-sum-equals-k](./560-subarray-sum-equals-k)
 
 ### Graphs
+- [128-longest-consecutive-sequence](./128-longest-consecutive-sequence)
 - [893-all-nodes-distance-k-in-binary-tree](./893-all-nodes-distance-k-in-binary-tree)
 
-### Other Problems
+### Sliding Window
+- [209-minimum-size-subarray-sum](./209-minimum-size-subarray-sum)
 - [3-longest-substring-without-repeating-characters](./3-longest-substring-without-repeating-characters)
+
+### Other Problems
 - [297-serialize-and-deserialize-binary-tree](./297-serialize-and-deserialize-binary-tree)
 - [3509-k-th-largest-perfect-subtree-size-in-binary-tree](./3509-k-th-largest-perfect-subtree-size-in-binary-tree)
-
-...and many more!
+- [73-set-matrix-zeroes](./73-set-matrix-zeroes)
+- [75-sort-colors](./75-sort-colors)
+- [966-binary-subarrays-with-sum](./966-binary-subarrays-with-sum)
+- [229-majority-element-ii](./229-majority-element-ii)
 
 ---
 
