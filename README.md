@@ -87,6 +87,20 @@ Each folder contains:
 - [206-reverse-linked-list](./206-reverse-linked-list)
 - [141-linked-list-cycle](./141-linked-list-cycle)
 
+### Bit Manipulation and Maths
+- [231-power-of-two](./231-power-of-two)
+- [326-power-of-three](./326-power-of-three)
+- [342-power-of-four](./342-power-of-four)
+- [201-bitwise-and-of-numbers-range](./201-bitwise-and-of-numbers-range)
+- [2533-bitwise-xor-of-all-pairings](./2533-bitwise-xor-of-all-pairings)
+- [29-divide-two-integers](./29-divide-two-integers)
+- [2323-minimum-bit-flips-to-convert-number](./2323-minimum-bit-flips-to-convert-number)
+- [3676-smallest-number-with-all-set-bits](./3676-smallest-number-with-all-set-bits)
+- [78-subsets](./78-subsets)
+- [90-subsets-ii](./90-subsets-ii)
+- [50-powx-n](./50-powx-n)
+- [204-count-primes](./204-count-primes)
+
 ### Dynamic Programming
 - [121-best-time-to-buy-and-sell-stock](./121-best-time-to-buy-and-sell-stock)
 - [124-binary-tree-maximum-path-sum](./124-binary-tree-maximum-path-sum)
@@ -98,6 +112,22 @@ Each folder contains:
 ### Graphs
 - [128-longest-consecutive-sequence](./128-longest-consecutive-sequence)
 - [893-all-nodes-distance-k-in-binary-tree](./893-all-nodes-distance-k-in-binary-tree)
+- [547-number-of-provinces](./547-number-of-provinces)
+- [1036-rotting-oranges](./1036-rotting-oranges)
+- [733-flood-fill](./733-flood-fill)
+- [542-01-matrix](./542-01-matrix)
+- [200-number-of-islands](./200-number-of-islands)
+- [130-surrounded-regions](./130-surrounded-regions)
+- [1073-number-of-enclaves](./1073-number-of-enclaves)
+- [801-is-graph-bipartite](./801-is-graph-bipartite)
+- [207-course-schedule](./207-course-schedule)
+- [210-course-schedule-ii](./210-course-schedule-ii)
+- [1537-maximum-score-after-splitting-a-string](./1537-maximum-score-after-splitting-a-string)
+- [744-network-delay-time](./744-network-delay-time)
+- [1171-shortest-path-in-binary-matrix](./1171-shortest-path-in-binary-matrix)
+- [1753-path-with-minimum-effort](./1753-path-with-minimum-effort)
+- [803-cheapest-flights-within-k-stops](./803-cheapest-flights-within-k-stops)
+- [2090-number-of-ways-to-arrive-at-destination](./2090-number-of-ways-to-arrive-at-destination)
 
 ### Sliding Window
 - [209-minimum-size-subarray-sum](./209-minimum-size-subarray-sum)
