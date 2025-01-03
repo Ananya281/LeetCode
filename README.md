@@ -128,6 +128,7 @@ Each folder contains:
 - [1753-path-with-minimum-effort](./1753-path-with-minimum-effort)
 - [803-cheapest-flights-within-k-stops](./803-cheapest-flights-within-k-stops)
 - [2090-number-of-ways-to-arrive-at-destination](./2090-number-of-ways-to-arrive-at-destination)
+- [820-find-eventual-safe-states](./820-find-eventual-safe-states)
 
 ### Sliding Window
 - [209-minimum-size-subarray-sum](./209-minimum-size-subarray-sum)
