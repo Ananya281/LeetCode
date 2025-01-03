@@ -29,30 +29,18 @@ public:
         int m=board[0].size();//col
         queue<pair<int,int>>q;
         vector<vector<int>>vis(n,vector<int>(m,0));
-        for(int i=0;i<n;i++)//row vary
+        for(int i=0;i<n;i++)
         {
-            if(!vis[i][0]&&board[i][0]=='O')//first col
+            for(int j=0;j<m;j++)
             {
-                q.push({i,0});
-                vis[i][0]=1;
-            }
-            if(!vis[i][m-1]&&board[i][m-1]=='O')//last col
-            {
-                q.push({i,m-1});
-                vis[i][m-1]=1;
-            }
-        }
-        for(int i=0;i<m;i++)
-        {
-            if(!vis[0][i]&&board[0][i]=='O')
-            {
-                q.push({0,i});
-                vis[0][i]=1;
-            }
-            if(!vis[n-1][i]&&board[n-1][i]=='O')
-            {
-                q.push({n-1,i});
-                vis[n-1][i]=1;
+                if(i==0||i==n-1||j==0||j==m-1)
+                {
+                    if(board[i][j]=='O'&&!vis[i][j])
+                    {
+                        q.push({i,j});
+                        vis[i][j]=1;
+                    }
+                }
             }
         }
         bfs(q,vis,board);
