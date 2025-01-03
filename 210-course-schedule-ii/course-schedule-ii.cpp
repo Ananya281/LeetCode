@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
-        int n=numCourses;
+       int n=numCourses;
         vector<vector<int>>adj(n);
         for(auto it:prerequisites)
         {
@@ -10,6 +10,7 @@ public:
             adj[v].push_back(u);
         }
         vector<int>indegree(n,0);
+        queue<int>q;
         for(int i=0;i<n;i++)
         {
             for(auto it:adj[i])
@@ -17,7 +18,6 @@ public:
                 indegree[it]++;
             }
         }
-        queue<int>q;
         for(int i=0;i<n;i++)
         {
             if(indegree[i]==0)
@@ -25,13 +25,13 @@ public:
                 q.push(i);
             }
         }
-        vector<int>topo;
+        vector<int>result;
         while(!q.empty())
         {
-            int node=q.front();
+            int ele=q.front();
             q.pop();
-            topo.push_back(node);
-            for(auto it:adj[node])
+            result.push_back(ele);
+            for(auto it:adj[ele])
             {
                 indegree[it]--;
                 if(indegree[it]==0)
@@ -40,10 +40,6 @@ public:
                 }
             }
         }
-        if(topo.size()==n)
-        {
-            return topo;
-        }
-        return {};
+        return result.size()==n ? result : vector<int>{};
     }
 };
