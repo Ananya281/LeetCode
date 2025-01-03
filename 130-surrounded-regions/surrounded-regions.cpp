@@ -1,65 +1,53 @@
 class Solution {
 public:
-    void bfs(queue<pair<int,int>>&q,vector<vector<int>>&vis,vector<vector<char>>&board)
+    void dfs(int row,int col, vector<vector<int>>&vis,vector<vector<char>>&board)
     {
+        int drow[4]={-1,0,+1,0};
+        vis[row][col]=1;
         int n=board.size();
         int m=board[0].size();
-        int drow[4]={-1,0,+1,0};
         int dcol[4]={0,+1,0,-1};
-        while(!q.empty())
+        for(int i=0;i<4;i++)
         {
-            int r=q.front().first;
-            int c=q.front().second;
-            q.pop();
-            for(int i=0;i<4;i++)
+            int nrow=row+drow[i];
+            int ncol=col+dcol[i];
+            if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && !vis[nrow][ncol] && board[nrow][ncol]=='O')
             {
-                int nrow=r+drow[i];
-                int ncol=c+dcol[i];
-                if(nrow>=0&&nrow<n&&ncol>=0&&ncol<m&&!vis[nrow][ncol]&&board[nrow][ncol]=='O')
-                {
-                    q.push({nrow,ncol});
-                    vis[nrow][ncol]=1;
-                }
+                dfs(nrow,ncol,vis,board);
             }
         }
     }
     void solve(vector<vector<char>>& board) {
-        int n=board.size();
-        int m=board[0].size();
-        vector<vector<int>>vis(n,vector<int>(m));
-        queue<pair<int,int>>q;
-        for(int i=0;i<n;i++)
+        int n=board.size();//rows
+        int m=board[0].size();//col
+        vector<vector<int>>vis(n,vector<int>(m,0));
+        for(int i=0;i<n;i++)//row vary
         {
-           if(board[i][0]=='O'&&!vis[i][0])
-           {
-                q.push({i,0});
-                vis[i][0]=1;
-           }
-           if(board[i][m-1]=='O'&&!vis[i][m-1])
-           {
-                q.push({i,m-1});
-                vis[i][m-1]=1;
-           }
+            if(!vis[i][0]&&board[i][0]=='O')//first col
+            {
+                dfs(i,0,vis,board);
+            }
+            if(!vis[i][m-1]&&board[i][m-1]=='O')//last col
+            {
+                dfs(i,m-1,vis,board);
+            }
         }
         for(int i=0;i<m;i++)
         {
-            if(board[0][i]=='O'&&!vis[0][i])
+            if(!vis[0][i]&&board[0][i]=='O')
             {
-                q.push({0,i});
-                vis[0][i]=1;
+                dfs(0,i,vis,board);
             }
-            if(board[n-1][i]=='O'&&!vis[n-1][i])
+            if(!vis[n-1][i]&&board[n-1][i]=='O')
             {
-                q.push({n-1,i});
-                vis[n-1][i]=1;
+                dfs(n-1,i,vis,board);
             }
         }
-        bfs(q,vis,board);
         for(int i=0;i<n;i++)
         {
             for(int j=0;j<m;j++)
             {
-                if(!vis[i][j] && board[i][j]=='O')
+                if(!vis[i][j]&&board[i][j]=='O')
                 {
                     board[i][j]='X';
                     vis[i][j]=1;
