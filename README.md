@@ -81,6 +81,9 @@ Each folder contains:
 - [1019-squares-of-a-sorted-array](./1019-squares-of-a-sorted-array)
 - [3-longest-substring-without-repeating-characters](./3-longest-substring-without-repeating-characters)
 
+### Strings
+- [2059-unique-length-3-palindromic-subsequences](./2059-unique-length-3-palindromic-subsequences)
+
 ### Linked List
 - [908-Middle of the Linked List](./908-middle-of-the-linked-list)
 - [237-delete-node-in-a-linked-list](./237-delete-node-in-a-linked-list)
