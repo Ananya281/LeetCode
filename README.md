@@ -83,6 +83,8 @@ Each folder contains:
 
 ### Strings
 - [2059-unique-length-3-palindromic-subsequences](./2059-unique-length-3-palindromic-subsequences)
+- [878-shifting-letters](./878-shifting-letters)
+- [2465-shifting-letters-ii](./2465-shifting-letters-ii)
 
 ### Linked List
 - [908-Middle of the Linked List](./908-middle-of-the-linked-list)
