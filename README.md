@@ -79,9 +79,10 @@ Each folder contains:
 - [31-next-permutation](./31-next-permutation)
 - [48-rotate-image](./48-rotate-image)
 - [1019-squares-of-a-sorted-array](./1019-squares-of-a-sorted-array)
-- [3-longest-substring-without-repeating-characters](./3-longest-substring-without-repeating-characters)
 
 ### Strings
+- [3-longest-substring-without-repeating-characters](./3-longest-substring-without-repeating-characters)
+- [2691-count-vowel-strings-in-ranges](./2691-count-vowel-strings-in-ranges)
 - [2059-unique-length-3-palindromic-subsequences](./2059-unique-length-3-palindromic-subsequences)
 - [878-shifting-letters](./878-shifting-letters)
 - [2465-shifting-letters-ii](./2465-shifting-letters-ii)
