@@ -4,7 +4,6 @@ public:
         int n=boxes.size();
         vector<int>pre(n,0);
         vector<int>post(n,0);
-        vector<int>result(n,0);
         int count=0;
         int opr=0;
         for(int i=0;i<n;i++)
