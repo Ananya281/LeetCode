@@ -86,6 +86,7 @@ Each folder contains:
 - [2059-unique-length-3-palindromic-subsequences](./2059-unique-length-3-palindromic-subsequences)
 - [878-shifting-letters](./878-shifting-letters)
 - [2465-shifting-letters-ii](./2465-shifting-letters-ii)
+- [1524-string-matching-in-an-array](./1524-string-matching-in-an-array)
 
 ### Linked List
 - [908-Middle of the Linked List](./908-middle-of-the-linked-list)
@@ -135,6 +136,8 @@ Each folder contains:
 - [803-cheapest-flights-within-k-stops](./803-cheapest-flights-within-k-stops)
 - [2090-number-of-ways-to-arrive-at-destination](./2090-number-of-ways-to-arrive-at-destination)
 - [820-find-eventual-safe-states](./820-find-eventual-safe-states)
+- [1300-critical-connections-in-a-network](./1300-critical-connections-in-a-network)
+- [1456-find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance](./1456-find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance)
 
 ### Sliding Window
 - [209-minimum-size-subarray-sum](./209-minimum-size-subarray-sum)
