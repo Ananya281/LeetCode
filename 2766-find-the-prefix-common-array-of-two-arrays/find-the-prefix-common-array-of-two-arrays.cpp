@@ -6,15 +6,30 @@ public:
         int i=0;
         map<int,int>mpp;
         vector<int>result;
+        int count=0;
         while(i<a&&i<b)
         {
             mpp[A[i]]++;
             mpp[B[i]]++;
-            int count=0;
-            for(auto it:mpp)
+            // for(auto it:mpp)
+            // {
+                // int freq=it.second;
+                // if(freq==2)
+                // {
+                //     count++;
+                // }
+            // }
+            if(A[i]==B[i])
             {
-                int freq=it.second;
-                if(freq==2)
+                count++;
+            }
+            else 
+            {
+                if(mpp[A[i]]==2)
+                {
+                    count++;
+                }
+                if(mpp[B[i]]==2)
                 {
                     count++;
                 }
