@@ -107,6 +107,7 @@ Each folder contains:
 - [90-subsets-ii](./90-subsets-ii)
 - [50-powx-n](./50-powx-n)
 - [204-count-primes](./204-count-primes)
+- [2792-neighboring-bitwise-xor](./2792-neighboring-bitwise-xor)
 
 ### Dynamic Programming
 - [121-best-time-to-buy-and-sell-stock](./121-best-time-to-buy-and-sell-stock)
