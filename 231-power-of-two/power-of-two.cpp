@@ -5,9 +5,20 @@ public:
         {
             return false;
         }
-        if((n&(n-1))==0)
+        else
         {
-            return true;
+            while(n%2==0)
+            {
+                n=n/2;
+            }
+            if(n==1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         return false;
     }
