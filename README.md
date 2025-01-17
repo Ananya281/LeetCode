@@ -108,6 +108,7 @@ Each folder contains:
 - [50-powx-n](./50-powx-n)
 - [204-count-primes](./204-count-primes)
 - [2792-neighboring-bitwise-xor](./2792-neighboring-bitwise-xor)
+- [2509-minimize-xor](./2509-minimize-xor)
 
 ### Dynamic Programming
 - [121-best-time-to-buy-and-sell-stock](./121-best-time-to-buy-and-sell-stock)
