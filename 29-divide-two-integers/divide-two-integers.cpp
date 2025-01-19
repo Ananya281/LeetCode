@@ -1,46 +1,47 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-       if(dividend==divisor)
-       {
-        return 1;
-       }
-       if(dividend==INT_MIN&&divisor==-1)
-       {
-        return INT_MAX;
-       }
-       bool sign=true;
-       if(dividend>=0&&divisor<0)
-       {    
-            sign=false;
-       }
-       else if(dividend<0&&divisor>0)
-       {
-            sign=false;
-       }
-       long long n=abs((long long)dividend);
-       long long d=abs((long long)divisor);
-       long long ans=0;
-       while(n>=d)
-       {
-        int count=0;
-        while((n>=(d<<(count)))&&(count<31))
+        if(dividend==divisor)
         {
-            count++;
+            return 1;
         }
-        if(count>0)
+        bool sign=true;
+        if(dividend>0 && divisor<0)
         {
-            ans=ans+(1LL<<(count-1));
-            n=n-(d<<(count-1));
+            sign=false;
         }
-       }
-       if(sign==false)
-       {
-        return ans*(-1);
-       }
-       else
-       {
-        return ans;
-       }
+        if(dividend<0 && divisor>0)
+        {
+            sign=false;
+        }
+        long n = abs((long)dividend);
+        long d = abs((long)divisor);
+        int ans=0;
+        while(n>=d)
+        {
+            int count=0;
+            while(n >= (d << (count+1)))
+            {
+                count++;
+            }
+            ans = ans + (1<<count);
+            n = n - (d<<count);
+        }
+        if(ans==(1<<31) && sign==true)
+        {
+            return INT_MAX;
+        }
+        if(ans==(1<<31) && sign==false)
+        {
+            return INT_MIN;
+        }
+        if(sign==true)
+        {
+            return ans;
+        }
+        else
+        {
+            return -ans;
+        }
     }
 };
