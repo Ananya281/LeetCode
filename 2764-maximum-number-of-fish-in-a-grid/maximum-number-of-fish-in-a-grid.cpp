@@ -1,33 +1,24 @@
 class Solution {
 public:
-    int bfs(int r,int c,vector<vector<int>>&visited,vector<vector<int>>&grid)
+    void dfs(int r,int c,vector<vector<int>>&visited,vector<vector<int>>&grid,int &sum)
     {
-        int sum=grid[r][c];
         int n=grid.size();
         int m=grid[0].size();
         int drow[4]={-1,0,+1,0};
         int dcol[4]={0,+1,0,-1};
         visited[r][c]=1;
-        queue<pair<int,int>>q;
-        q.push({r,c});
-        while(!q.empty())
-        {
-            int row=q.front().first;
-            int col=q.front().second;
-            q.pop();
+        
+           
             for(int i=0;i<4;i++)
             {
-                int nrow=row+drow[i];
-                int ncol=col+dcol[i];
+                int nrow=r+drow[i];
+                int ncol=c+dcol[i];
                 if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && !visited[nrow][ncol] && grid[nrow][ncol]>0)
                 {
                     sum=sum+grid[nrow][ncol];
-                    visited[nrow][ncol]=1;
-                    q.push({nrow,ncol});
+                    dfs(nrow,ncol,visited,grid,sum);
                 }
             }
-        }
-        return sum;
     }
     int findMaxFish(vector<vector<int>>& grid) {
         int n=grid.size();
@@ -40,7 +31,9 @@ public:
             {
                 if(!visited[i][j] && grid[i][j]>0)
                 {
-                    maxsum=max(maxsum,bfs(i,j,visited,grid));
+                    int sum=grid[i][j];
+                    dfs(i,j,visited,grid,sum);
+                    maxsum=max(maxsum,sum);
                 }
             }
         }
