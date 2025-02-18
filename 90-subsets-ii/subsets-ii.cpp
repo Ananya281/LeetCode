@@ -1,28 +1,26 @@
 class Solution {
 public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        vector<vector<int>>result;
         int n=nums.size();
-        int sub=1<<n;
-        set<vector<int>>st;
-        //to check duplicates
-        //without sorting subsets like [1,2] and [2,1] will not treat as duplicates  
+        int subset=1<<n;
         sort(nums.begin(),nums.end());
-        for(int i=0;i<sub;i++)
+        vector<vector<int>>result;
+        set<vector<int>>st;
+        for(int i=0;i<subset;i++)
         {
-            vector<int>list;
+            vector<int>ans;
             for(int j=0;j<n;j++)
             {
-                if(i&(1<<j))//check ith bit is set or not
+                if(i&(1<<j))
                 {
-                    list.push_back(nums[j]);
+                    ans.push_back(nums[j]);
                 }
             }
-            st.insert(list);//to store unique subsets
+            st.insert(ans);
         }
         for(auto it:st)
         {
-            result.push_back(it);//convert set to vector
+            result.push_back(it);
         }
         return result;
     }
