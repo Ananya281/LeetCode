@@ -10,7 +10,7 @@ public:
         }
         for(int i=ind;i<n;i++)
         {
-            if(i>ind && candidates[i]==candidates[i-1])
+            if(i!=ind && candidates[i]==candidates[i-1])
             {
                 continue;
             }
