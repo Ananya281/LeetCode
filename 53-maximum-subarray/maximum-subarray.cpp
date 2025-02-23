@@ -7,15 +7,12 @@ public:
         for(int i=0;i<n;i++)
         {
             sum=sum+nums[i];
-            if(sum>maxi)
-            {
-                maxi=sum;
-            }
+            maxi=max(maxi,sum);
             if(sum<0)
             {
                 sum=0;
             }
         }
-        return int(maxi);
+        return (int)maxi;
     }
 };
