@@ -5,7 +5,7 @@ public:
         int pivot=-1;
         for(int i=n-1;i>0;i--)
         {
-            if(nums[i]>nums[i-1])
+            if(nums[i-1]<nums[i])
             {
                 pivot=i-1;
                 break;
@@ -16,7 +16,7 @@ public:
             reverse(nums.begin(),nums.end());
             return;
         }
-        for(int i=n-1;i>=pivot+1;i--)
+        for(int i=n-1;i>=0;i--)
         {
             if(nums[i]>nums[pivot])
             {
@@ -24,6 +24,6 @@ public:
                 break;
             }
         }
-        reverse(nums.begin()+pivot+1,nums.end());
+        sort(nums.begin()+pivot+1,nums.end());
     }
 };
