@@ -20,8 +20,8 @@ public:
                 int x=it;
                 while(st.find(x+1)!=st.end())
                 {
-                    x++;
                     count++;
+                    x++;
                 }
                 longest=max(longest,count);
             }
