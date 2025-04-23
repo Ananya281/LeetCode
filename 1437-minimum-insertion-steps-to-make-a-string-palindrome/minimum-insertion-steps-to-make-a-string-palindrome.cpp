@@ -38,13 +38,37 @@ public:
         }
         return dp[n][m];
     }
+    int space(int n,int m,vector<int>&prev,string s1,string s2)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            vector<int>temp(n+1,0);
+            for(int j=1;j<=m;j++)
+            {
+                if(s1[i-1]==s2[j-1])
+                {
+                    temp[j]=1+prev[j-1];
+                }
+                else
+                {
+                    int up=prev[j];
+                    int left=temp[j-1];
+                    temp[j]=max(up,left);
+                }
+            }
+            prev = temp;
+        }
+        return prev[m];
+    }
     int minInsertions(string s) {
         int n=s.size();
         string rev=s;
         reverse(rev.begin(),rev.end());
         // vector<vector<int>>dp(n,vector<int>(n,-1));
         // return n-memo(n-1,n-1,dp,s,rev);
-        vector<vector<int>>dp(n+1,vector<int>(n+1,0));
-        return n-tabu(n,n,dp,s,rev);
+        // vector<vector<int>>dp(n+1,vector<int>(n+1,0));
+        // return n-tabu(n,n,dp,s,rev);
+        vector<int>dp(n+1,0);
+        return n - space(n,n,dp,s,rev);
     }
 };
