@@ -153,8 +153,10 @@ public:
     int cherryPickup(vector<vector<int>>& grid) {
         int n=grid.size();
         int m=grid[0].size();
-        vector<vector<vector<int>>>dp(n,vector<vector<int>>(m,vector<int>(m,-1)));
+        // vector<vector<vector<int>>>dp(n,vector<vector<int>>(m,vector<int>(m,-1)));
         // return memo(0,0,m-1,dp,grid);
-        return tabu(n,m,dp,grid);
+        // return tabu(n,m,dp,grid);
+        vector<vector<int>>dp(m,vector<int>(m,-1));
+        return space(n,m,dp,grid);
     }
 };
