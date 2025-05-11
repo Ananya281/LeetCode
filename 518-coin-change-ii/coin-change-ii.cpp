@@ -89,10 +89,10 @@ public:
         // vector<vector<int>>dp(n,vector<int>(amount+1,-1));
         // return memo(n-1,amount,dp,coins);
 
-        vector<vector<long long>>dp(n,vector<long long>(amount+1,0));
-        return tabu(n,amount,dp,coins);
+        // vector<vector<long long>>dp(n,vector<long long>(amount+1,0));
+        // return tabu(n,amount,dp,coins);
 
-        // vector<long long>dp(amount+1,0);
-        // return space(n,amount,dp,coins);
+        vector<long long>dp(amount+1,0);
+        return space(n,amount,dp,coins);
     }
 };
