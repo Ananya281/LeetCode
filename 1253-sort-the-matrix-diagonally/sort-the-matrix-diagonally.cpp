@@ -3,7 +3,7 @@ public:
     vector<vector<int>> diagonalSort(vector<vector<int>>& mat) {
         int n=mat.size();
         int m=mat[0].size();
-        unordered_map<int,deque<int>>mpp;
+        unordered_map<int,vector<int>>mpp;
         for(int i=0;i<n;i++)
         {
             for(int j=0;j<m;j++)
@@ -15,12 +15,12 @@ public:
         {
             sort(it.second.begin(),it.second.end());
         }
-        for(int i=0;i<n;i++)
+        for(int i=n-1;i>=0;i--)
         {
-            for(int j=0;j<m;j++)
+            for(int j=m-1;j>=0;j--)
             {
-                mat[i][j] = mpp[i - j].front();
-                mpp[i-j].pop_front();
+                mat[i][j] = mpp[i - j].back();
+                mpp[i-j].pop_back();
             }
         }
         return mat;
