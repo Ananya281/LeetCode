@@ -8,16 +8,16 @@ public:
             char c=s[i];
             freq[c-'a']++;
         }
-        unordered_set<int>st;
+        sort(freq.begin(),freq.end());
         int count=0;
-        for(int i=0;i<26;i++)
+        for(int i=24;i>=0;i--)
         {
-            while(freq[i]>0 && st.find(freq[i])!=st.end())
+            if(freq[i]>0 && freq[i]>=freq[i+1])
             {
-                freq[i]--;
-                count++;
+                int prev=freq[i];
+                freq[i]=max(0,freq[i+1]-1);
+                count=count+prev-freq[i];
             }
-            st.insert(freq[i]);
         }
         return count;
     }
