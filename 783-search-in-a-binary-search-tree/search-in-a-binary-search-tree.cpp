@@ -16,17 +16,17 @@ public:
         {
             return NULL;
         }
-        if(root->val==val)
+        while(root && root->val!=val)
         {
-            return root;
+            if(val<root->val)
+            {
+                root=root->left;
+            }
+            else
+            {
+                root=root->right;
+            }
         }
-        else if(val<=root->val)
-        {
-            return searchBST(root->left,val);
-        }
-        else
-        {
-            return searchBST(root->right,val);
-        }
+        return root;
     }
 };
