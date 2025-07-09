@@ -20,7 +20,7 @@ public:
         {
             return right;
         }
-        if(right==NULL)
+        else if(right==NULL)
         {
             return left;
         }
