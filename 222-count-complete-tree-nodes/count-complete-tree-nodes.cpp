@@ -11,32 +11,38 @@
  */
 class Solution {
 public:
+    int getheight(TreeNode* root,bool get)
+    {
+        int height=0;
+        if(root==NULL)
+        {
+            return 0;
+        }
+        while(root)
+        {
+            height++;
+            if(get==true)
+            {
+                root=root->left;
+            }
+            else
+            {
+                root=root->right;
+            }
+        }
+        return height;
+    }
     int countNodes(TreeNode* root) {
         if(root==NULL)
         {
             return 0;
         }
-        queue<TreeNode*>q;
-        q.push(root);
-        int total=0;
-        while(!q.empty())
+        int lh=getheight(root,true);
+        int rh=getheight(root,false);
+        if(lh==rh)
         {
-            int n=q.size();
-            for(int i=0;i<n;i++)
-            {
-                TreeNode*node=q.front();
-                q.pop();
-                total++;
-                if(node->left)
-                {
-                    q.push(node->left);
-                }
-                if(node->right)
-                {
-                    q.push(node->right);
-                }
-            }
+            return pow(2,lh)-1;
         }
-        return total;
+        return 1+countNodes(root->left)+countNodes(root->right);
     }
 };
