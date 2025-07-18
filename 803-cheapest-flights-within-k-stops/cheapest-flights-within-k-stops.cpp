@@ -1,50 +1,39 @@
 class Solution {
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
-        vector<vector<pair<int,int>>>adj(n);//neighbor,cost
-        for(auto it:flights)//u->{v,cost}
+        vector<vector<pair<int,int>>>adj(n);
+        for(auto it:flights)
         {
             int u=it[0];
             int v=it[1];
-            int p=it[2];
-            adj[u].push_back({v,p});
+            int w=it[2];
+            adj[u].push_back({v,w});
         }
-        queue<pair<int,pair<int,int>>>q;//stops,node,price
-        q.push({0,{src,0}});
-        vector<int>dis(n,1e9);
-        dis[src]=0;
-        while(!q.empty())
+        priority_queue<vector<int>,vector<vector<int>>,greater<vector<int>>>pq;
+        pq.push({0,src,0});
+        vector<int>minstops(n,1e9);
+        while(!pq.empty())
         {
-            int s=q.front().first;
-            int node=q.front().second.first;
-            int p=q.front().second.second;
-            q.pop();
+            int cost=pq.top()[0];
+            int node=pq.top()[1];
+            int stops=pq.top()[2];
+            pq.pop();
+            if(node==dst)
+            {
+                return cost;
+            }
+            if(stops>k || stops>=minstops[node])
+            {
+                continue;
+            }
+            minstops[node]=stops;
             for(auto it:adj[node])
             {
-                int ele=it.first;
+                int nei=it.first;
                 int price=it.second;
-                if(p+price<dis[ele] && s<=k)
-                {
-                    dis[ele]=p+price;
-                    q.push({s+1,{ele,dis[ele]}});
-                }
+                pq.push({cost+price,nei,stops+1});
             }
         }
-        if(dis[dst]==1e9)
-        {
-            return -1;
-        }
-        return dis[dst];
+        return -1;
     }
 };
-
-
-
-//if done using priority_queue, minheap
-//{cost,,currentnode,stopused}
-// TLE occurs
-// if (stops > k || stops >= minStops[node]) continue; 
-// minStops[node] = stops;
-// means:
-// If we’ve used too many stops or we have already reached this node using fewer stops, then skip it.
-// Otherwise, update and go ahead."
