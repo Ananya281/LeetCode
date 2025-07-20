@@ -1,8 +1,8 @@
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
-        int n=nums.size();
         int pivot=-1;
+        int n=nums.size();
         for(int i=n-1;i>0;i--)
         {
             if(nums[i-1]<nums[i])
@@ -16,7 +16,7 @@ public:
             reverse(nums.begin(),nums.end());
             return;
         }
-        for(int i=n-1;i>pivot;i--)
+        for(int i=n-1;i>=0;i--)        
         {
             if(nums[i]>nums[pivot])
             {
