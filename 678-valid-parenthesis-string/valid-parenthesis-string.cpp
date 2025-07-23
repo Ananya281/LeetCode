@@ -37,3 +37,8 @@ public:
         return true;
     }
 };
+
+
+//L->R  *->(, ( open++; else open-- if(open<0)-->return false means close brackets extra, not balanced
+
+//R->L *->), ) close++, else close-- if(close<0)-->return false means open brackets extra, not balanced
