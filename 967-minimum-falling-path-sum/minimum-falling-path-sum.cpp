@@ -119,15 +119,15 @@ public:
     int minFallingPathSum(vector<vector<int>>& matrix) {
         int n=matrix.size();
         int m=matrix[0].size();
-        vector<vector<int>>dp(n,vector<int>(m,-1));
+        // vector<vector<int>>dp(n,vector<int>(m,-1));
         // int ans=1e9;
         // for(int i=0;i<n;i++)//columns
         // {
         //     ans=min(ans,memo(n-1,i,dp,matrix));
         // }
         // return ans;
-        return tabu(n,m,dp,matrix);
-        // vector<int>dp(m,-1);
-        // return space(n,m,dp,matrix);
+        // return tabu(n,m,dp,matrix);
+        vector<int>dp(m,-1);
+        return space(n,m,dp,matrix);
     }
 };
