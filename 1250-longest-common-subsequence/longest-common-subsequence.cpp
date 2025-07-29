@@ -78,10 +78,37 @@ public:
         int m=text2.size();
         // vector<vector<int>>dp(n,vector<int>(m,-1));
         // return memo(n-1,m-1,text1,text2,dp);
-        // vector<vector<int>>dp(n+1,vector<int>(m+1,-1));
-        // return tabu(n,m,text1,text2,dp);
-        vector<int>dp(m+1,-1);
-        return space(n,m,text1,text2,dp);
-
+        vector<vector<int>>dp(n+1,vector<int>(m+1,-1));
+        int ans= tabu(n,m,text1,text2,dp);
+        string str="";
+        for(int i=0;i<ans;i++)
+        {
+            str=str+'&';
+        }
+        int i=n;
+        int j=m;
+        int index=ans-1;
+        while(i>0 && j>0)
+        {
+            if(text1[i-1]==text2[j-1])
+            {
+                str[index]=text1[i-1];
+                i--;
+                j--;
+                index--;
+            }
+            else if(dp[i-1][j]>dp[i][j-1])
+            {
+                i--;
+            }
+            else
+            {
+                j--;
+            }
+        }
+        cout<<str;
+        return ans;
+        // vector<int>dp(m+1,-1);
+        // return space(n,m,text1,text2,dp);
     }
 };
