@@ -1,8 +1,8 @@
 class Solution {
 public:
-    int memo(int i,int j,vector<vector<int>>&dp,string s1,string s2)
+    int memo(int i,int j,string str1,string str2,vector<vector<int>>&dp)
     {
-        if(i<0||j<0)
+        if(i<0 || j<0)
         {
             return 0;
         }
@@ -10,23 +10,31 @@ public:
         {
             return dp[i][j];
         }
-        if(s1[i]==s2[j])
+        if(str1[i]==str2[j])
         {
-            return 1+memo(i-1,j-1,dp,s1,s2);
+            return 1+memo(i-1,j-1,str1,str2,dp);
         }
-        int up=memo(i-1,j,dp,s1,s2);
-        int left=memo(i,j-1,dp,s1,s2);
+        int up=memo(i-1,j,str1,str2,dp);
+        int left=memo(i,j-1,str1,str2,dp);
         return dp[i][j]=max(up,left);
     }
-    int tabu(int n,int m,vector<vector<int>>&dp,string s1,string s2)
+    int tabu(int n,string str1,string str2,vector<vector<int>>&dp)
     {
+        for(int i=0;i<=n;i++)
+        {
+            dp[0][i]=0;
+        }
+        for(int j=0;j<=n;j++)
+        {
+            dp[j][0]=0;
+        }
         for(int i=1;i<=n;i++)
         {
-            for(int j=1;j<=m;j++)
+            for(int j=1;j<=n;j++)
             {
-                if(s1[i-1]==s2[j-1])
+                if(str1[i-1]==str2[j-1])
                 {
-                    dp[i][j]=1+dp[i-1][j-1];
+                    dp[i][j]=dp[i-1][j-1]+1;
                 }
                 else
                 {
@@ -36,39 +44,16 @@ public:
                 }
             }
         }
-        return dp[n][m];
-    }
-    int space(int n,int m,vector<int>&prev,string s1,string s2)
-    {
-        for(int i=1;i<=n;i++)
-        {
-            vector<int>temp(n+1,0);
-            for(int j=1;j<=m;j++)
-            {
-                if(s1[i-1]==s2[j-1])
-                {
-                    temp[j]=1+prev[j-1];
-                }
-                else
-                {
-                    int up=prev[j];
-                    int left=temp[j-1];
-                    temp[j]=max(up,left);
-                }
-            }
-            prev = temp;
-        }
-        return prev[m];
+        return dp[n][n];
     }
     int minInsertions(string s) {
         int n=s.size();
-        string rev=s;
-        reverse(rev.begin(),rev.end());
+        string str= s;
+        reverse(str.begin(),str.end());
         // vector<vector<int>>dp(n,vector<int>(n,-1));
-        // return n-memo(n-1,n-1,dp,s,rev);
-        // vector<vector<int>>dp(n+1,vector<int>(n+1,0));
-        // return n-tabu(n,n,dp,s,rev);
-        vector<int>dp(n+1,0);
-        return n - space(n,n,dp,s,rev);
+        // int ans=memo(n-1,n-1,s,str,dp);
+        vector<vector<int>>dp(n+1,vector<int>(n+1,-1));
+        int ans=tabu(n,s,str,dp);
+        return n-ans;
     }
 };
