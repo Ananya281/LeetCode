@@ -22,9 +22,38 @@ public:
         }
         return dp[i][state]=profit;
     }
+    int tabu(int n,vector<vector<int>>&dp,vector<int>&prices)
+    {
+        dp[n][0]=0;
+        dp[n][1]=0;
+        dp[n][2]=0;
+        for(int i=0;i<=n;i++)
+        {
+            dp[i][2]=0;
+        }
+        for(int i=n-1;i>=0;i--)
+        {
+            for(int j=0;j<2;j++)
+            {
+                int profit=INT_MIN;
+                if(j==0)
+                {
+                    profit=max(-prices[i]+dp[i+1][1],dp[i+1][0]);
+                }
+                else if(j==1)
+                {
+                    profit=max(prices[i]+dp[i+1][2],dp[i+1][1]);
+                }
+                dp[i][j]=profit;
+            }
+        }
+        return dp[0][0];
+    }
     int maxProfit(vector<int>& prices) {
         int n=prices.size();
-        vector<vector<int>>dp(n,vector<int>(3,-1));//buy,sell,done
-        return memo(0,0,dp,prices);
+        // vector<vector<int>>dp(n,vector<int>(3,-1));//buy,sell,done
+        // return memo(0,0,dp,prices);
+        vector<vector<int>>dp(n+1,vector<int>(3,-1));//buy,sell,done
+        return tabu(n,dp,prices);
     }
 };
