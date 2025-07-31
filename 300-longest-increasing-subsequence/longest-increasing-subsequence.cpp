@@ -1,23 +1,39 @@
 class Solution {
-public:
-    int lengthOfLIS(vector<int>& nums) {
-        int n=nums.size();
-        vector<int>temp;
-        temp.push_back(nums[0]);
-        int len=1;
-        for(int i=1;i<n;i++)
+public: 
+    int lowerbound(vector<int>&nums,int element)
+    {
+        int low=0;
+        int high=nums.size();
+        while(low<=high)
         {
-            if(nums[i]>temp.back())
+            int mid=(low+high)/2;
+            if(nums[mid]>=element)
             {
-                temp.push_back(nums[i]);
-                len++;
+                high=mid-1;
             }
             else
             {
-                int ind=lower_bound(temp.begin(),temp.end(),nums[i])-temp.begin();
-                temp[ind]=nums[i];
+                low=mid+1;
             }
         }
-        return len;
+        return low;
+    }
+    int lengthOfLIS(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>result;
+        result.push_back(nums[0]);
+        for(int i=1;i<n;i++)
+        {
+            if(nums[i]>result.back())
+            {
+                result.push_back(nums[i]);
+            }
+            else
+            {
+                int ind=lowerbound(result,nums[i]);
+                result[ind]=nums[i];
+            }
+        }   
+        return result.size();
     }
 };
