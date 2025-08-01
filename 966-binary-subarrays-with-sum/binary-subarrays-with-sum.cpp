@@ -1,27 +1,24 @@
 class Solution {
 public:
-    int func(vector<int>&nums,int goal)
-    {
-        if(goal<0)
-        {
-            return 0;
-        }
-        int left=0;
-        int sum=0;
+    int numSubarraysWithSum(vector<int>& nums, int goal) {
+        int n=nums.size();
         int count=0;
-        for(int right=0;right<nums.size();right++)
+        map<int,int>mpp;
+        int sum=0;
+        for(int i=0;i<n;i++)
         {
-            sum=sum+nums[right];
-            while(sum>goal)
+            sum=sum+nums[i];
+            if(sum==goal)
             {
-                sum=sum-nums[left];
-                left++;
+                count=count+1;
             }
-            count=count+(right-left+1);
+            int rem=sum-goal;
+            if(mpp.find(rem)!=mpp.end())
+            {
+                count=count+mpp[rem];
+            }
+            mpp[sum]++;
         }
         return count;
-    }
-    int numSubarraysWithSum(vector<int>& nums, int goal) {
-        return func(nums,goal)-func(nums,goal-1);
     }
 };
