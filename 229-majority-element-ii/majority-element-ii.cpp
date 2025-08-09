@@ -1,28 +1,28 @@
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
+        int n=nums.size();
         int count1=0;
         int count2=0;
-        int element1=0;
-        int element2=0;
-        int n=nums.size();
+        int ele1;
+        int ele2;
         for(int i=0;i<n;i++)
         {
-            if(count1==0&&nums[i]!=element2)
+            if(count1==0 && nums[i]!=ele2)
             {
-                count1++;
-                element1=nums[i];
+                count1=1;
+                ele1=nums[i];
             }
-            else if(count2==0&&nums[i]!=element1)
-            {
-                count2++;
-                element2=nums[i];
-            }
-            else if(element1==nums[i])
+            else if(nums[i]==ele1)
             {
                 count1++;
             }
-            else if(element2==nums[i])
+            else if(count2==0 && nums[i]!=ele1)
+            {
+                count2=1;
+                ele2=nums[i];
+            }
+            else if(nums[i]==ele2)
             {
                 count2++;
             }
@@ -34,26 +34,26 @@ public:
         }
         count1=0;
         count2=0;
+        vector<int>temp;
         for(int i=0;i<n;i++)
         {
-            if(element1==nums[i])
+            if(nums[i]==ele1)
             {
                 count1++;
             }
-            else if(element2==nums[i])
+            else if(nums[i]==ele2)
             {
                 count2++;
             }
         }
-        vector<int>result;
-        if(count1>(n/3))
+        if(count1>n/3)
         {
-            result.push_back(element1);
+            temp.push_back(ele1);
         }
-        if(count2>(n/3))
+        if(count2>n/3)
         {
-            result.push_back(element2);
+            temp.push_back(ele2);
         }
-        return result;
+        return temp;
     }
 };
