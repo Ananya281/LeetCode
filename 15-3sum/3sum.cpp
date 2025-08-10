@@ -15,15 +15,7 @@ public:
             while(j<k)
             {
                 int sum=nums[i]+nums[j]+nums[k];
-                if(sum<0)
-                {
-                    j++;
-                }
-                else if(sum>0)
-                {
-                    k--;
-                }
-                else
+                if(sum==0)
                 {
                     vector<int>temp={nums[i],nums[j],nums[k]};
                     result.push_back(temp);
@@ -37,6 +29,14 @@ public:
                     {
                         k--;
                     }
+                }
+                else if(sum<0)
+                {
+                    j++;
+                }
+                else
+                {
+                    k--;
                 }
             }
         }
