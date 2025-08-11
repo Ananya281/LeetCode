@@ -1,28 +1,28 @@
 class Solution {
 public:
-    void find(int ind,int target,vector<int>&candidates,vector<int>&ans,vector<vector<int>>&result)
+    void recurr(int i,vector<vector<int>>&result,vector<int>&temp,vector<int>&candidates,int target)
     {
-        int n=candidates.size();
-        if(ind==n)
+        if(i==candidates.size())
         {
             if(target==0)
             {
-                result.push_back(ans);
+                result.push_back(temp);
             }
             return;
         }
-        if(target>=candidates[ind])
+        recurr(i+1,result,temp,candidates,target);
+        if(candidates[i]<=target)
         {
-            ans.push_back(candidates[ind]);
-            find(ind,target-candidates[ind],candidates,ans,result);
-            ans.pop_back();
+            temp.push_back(candidates[i]);
+            recurr(i,result,temp,candidates,target-candidates[i]);
+            temp.pop_back();
         }
-        find(ind+1,target,candidates,ans,result);
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        int n=candidates.size();
         vector<vector<int>>result;
-        vector<int>ans;
-        find(0,target,candidates,ans,result);
+        vector<int>temp;
+        recurr(0,result,temp,candidates,target);
         return result;
     }
 };
