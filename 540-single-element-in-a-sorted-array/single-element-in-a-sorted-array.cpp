@@ -13,9 +13,10 @@ public:
         if(nums[n-1]!=nums[n-2])
         {
             return nums[n-1];
+            
         }
-        int low=1;
-        int high=n-2;
+        int low=0;
+        int high=n-1;
         while(low<=high)
         {
             int mid=(low+high)/2;
@@ -23,7 +24,7 @@ public:
             {
                 return nums[mid];
             }
-            if((mid%2==0 && nums[mid]==nums[mid+1]) || (mid%2!=0 && nums[mid]==nums[mid-1]))
+            else if((mid%2==0 && nums[mid]==nums[mid+1]) || (mid%2!=0 && nums[mid]==nums[mid-1]))
             {
                 low=mid+1;
             }
