@@ -11,27 +11,33 @@
  */
 class Solution {
 public:
-    TreeNode* kth(TreeNode* root,int k,int &count)
-    {
+    int count=0;
+    int kthSmallest(TreeNode* root, int k) {
         if(root==NULL)
         {
-            return NULL;
+            return -1;
         }
-        TreeNode*left=kth(root->left,k,count);
-        if(left!=NULL)
+        if(root->left)
         {
-            return left;
+            int leftans=kthSmallest(root->left,k);
+            if(leftans!=-1)
+            {
+                return leftans;
+            }
+        }
+        if(count+1==k)
+        {
+            return root->val;
         }
         count++;
-        if(count==k)
+        if(root->right)
         {
-            return root;
+            int rightans=kthSmallest(root->right,k);
+            if(rightans!=-1)
+            {
+                return rightans;
+            }
         }
-        return kth(root->right,k,count);
-    }
-    int kthSmallest(TreeNode* root, int k) {
-        int count=0;
-        TreeNode* node=kth(root,k,count);
-        return node->val;
+        return -1;
     }
 };
