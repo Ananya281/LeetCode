@@ -1,29 +1,37 @@
 class Solution {
 public:
-    void dfs(int initial,vector<vector<int>>&image,vector<vector<int>>&result,int sr,int sc,int color)
+    void bfs(int sr,int sc,vector<vector<int>>&image,int color,vector<vector<int>>&copy,int initial)
     {
+        queue<pair<int,int>>q;
         int n=image.size();
         int m=image[0].size();
-        result[sr][sc]=color;
-        int drow[4]={-1,0,+1,0};
-        int dcol[4]={0,+1,0,-1};
-
+        q.push({sr,sc});
+        copy[sr][sc]=color;
+        vector<int>row={-1,0,+1,0};
+        vector<int>col={0,+1,0,-1};
+        while(!q.empty())
+        {
+            int r=q.front().first;
+            int c=q.front().second;
+            q.pop();
             for(int i=0;i<4;i++)
             {
-                int nrow=sr+drow[i];
-                int ncol=sc+dcol[i];
-                if(nrow>=0&&nrow<n&&ncol>=0&&ncol<m && result[nrow][ncol]!=color && image[nrow][ncol]==initial)
+                int nrow=r+row[i];
+                int ncol=c+col[i];
+                if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && image[nrow][ncol]==initial && copy[nrow][ncol]!=color)
                 {
-                    dfs(initial,image,result,nrow,ncol,color);
+                    copy[nrow][ncol]=color;
+                    q.push({nrow,ncol});
                 }
             }
+        }
     }
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         int n=image.size();
         int m=image[0].size();
-        vector<vector<int>>result=image;
+        vector<vector<int>>copy=image;
         int initial=image[sr][sc];
-        dfs(initial,image,result,sr,sc,color);
-        return result;
+        bfs(sr,sc,image,color,copy,initial);
+        return copy;
     }
 };
