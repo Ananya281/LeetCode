@@ -10,7 +10,6 @@ public:
             adj[v].push_back(u);
         }
         vector<int>indegree(n,0);
-        queue<int>q;
         for(int i=0;i<n;i++)
         {
             for(auto it:adj[i])
@@ -18,6 +17,7 @@ public:
                 indegree[it]++;
             }
         }
+        queue<int>q;
         for(int i=0;i<n;i++)
         {
             if(indegree[i]==0)
@@ -28,10 +28,10 @@ public:
         int count=0;
         while(!q.empty())
         {
-            int ele=q.front();
+            int node=q.front();
             q.pop();
             count++;
-            for(auto it:adj[ele])
+            for(auto it:adj[node])
             {
                 indegree[it]--;
                 if(indegree[it]==0)
@@ -40,6 +40,10 @@ public:
                 }
             }
         }
-        return count==n;
+        if(count==n)
+        {
+            return true;
+        }
+        return false;
     }
 };
