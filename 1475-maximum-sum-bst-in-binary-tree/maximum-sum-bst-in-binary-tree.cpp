@@ -18,8 +18,10 @@ struct Info
     int maxval;
     int sum;
 };
+//maxval<root->val<minval
+//left             right
 int ans=0;
-    Info dfs(TreeNode* root)
+    Info dfs(TreeNode* root)//function with return type struct 
     {
         if(!root)
         {
@@ -47,7 +49,8 @@ int ans=0;
         return curr;
     }
     int maxSumBST(TreeNode* root) {
-        dfs(root);
+        dfs(root);//return object
+        //return type ko store ni kia, global update kar dia, vo use kiya fir
         return ans;
     }
 };
