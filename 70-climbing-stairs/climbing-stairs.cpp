@@ -1,25 +1,19 @@
 class Solution {
 public:
-int memo(int ind,vector<int>&dp)
-{
-    if(ind==0)
+    int tabu(int n,vector<int>&dp)
     {
-        return 1;
+        dp[0]=1;
+        dp[1]=1;
+        for(int i=2;i<=n;i++)
+        {
+            int once=dp[i-1];
+            int twoe=dp[i-2];
+            dp[i]=once+twoe;
+        }
+        return dp[n];
     }
-    if(ind==1)
-    {
-        return 1;
-    }
-    if(dp[ind]!=-1)
-    {
-        return dp[ind];
-    }
-    int ones=memo(ind-1,dp);
-    int twoe=memo(ind-2,dp);
-    return dp[ind]=ones+twoe;
-}
     int climbStairs(int n) {
         vector<int>dp(n+1,-1);
-        return memo(n,dp);
+        return tabu(n,dp);
     }
 };
