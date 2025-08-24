@@ -19,7 +19,7 @@ public:
         {
             for(int j=m-1;j>=0;j--)
             {
-                mat[i][j] = mpp[i - j].back();
+                mat[i][j]=mpp[i-j].back();
                 mpp[i-j].pop_back();
             }
         }
