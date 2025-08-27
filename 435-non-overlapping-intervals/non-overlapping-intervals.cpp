@@ -1,22 +1,33 @@
 class Solution {
 public:
-    static bool comp(vector<int>&a,vector<int>&b)
-    {
-        return a[1]<b[1];
-    }
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
         int n=intervals.size();
-        sort(intervals.begin(),intervals.end(),comp);
+        sort(intervals.begin(),intervals.end());
         int count=0;
-        int freetime=intervals[0][1];
-        for(int i=1;i<n;i++)
+        int i=0;
+        int j=1;
+        while(j<n)
         {
-            if(intervals[i][0]>=freetime)
+            vector<int>curr=intervals[i];
+            vector<int>nextint=intervals[j];
+            int cs=curr[0];
+            int ce=curr[1];
+            int ns=nextint[0];
+            int ne=nextint[1];
+            if(ce<=ns)//no overlapping
             {
-                freetime=intervals[i][1];
+                i=j;
+                j++;
             }
-            else
+            else if(ce<=ne)//overlapping
             {
+                count++;
+                j++;
+            }
+            else if(ce>ne)
+            {
+                i=j;
+                j++;
                 count++;
             }
         }
