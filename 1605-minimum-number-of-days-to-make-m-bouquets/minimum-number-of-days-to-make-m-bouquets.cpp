@@ -1,45 +1,48 @@
 class Solution {
 public:
-    long long int func(vector<int>& bloomDay, long long int day, long long int m, long long int k)
+    int func(vector<int>&bloomDay,int day,int m,int k)
     {
         int n=bloomDay.size();
-        long long int count=0;
-        long long int blooms=0;
+        int count=0;
+        int bloom=0;
         for(int i=0;i<n;i++)
         {
             if(bloomDay[i]<=day)
             {
                 count++;
+                if(count==k)
+                {
+                    bloom++;
+                    count=0;
+                }
             }
             else
             {
-                blooms=blooms+(long long int)floor((count/k));
                 count=0;
             }
         }
-        blooms=blooms+(long long int)floor((count/k));
-        return blooms;
+        return bloom;
     }
     int minDays(vector<int>& bloomDay, int m, int k) {
         int n=bloomDay.size();
-        if(n<(long long int)m*k)
+        if(n<1LL*m*k)
         {
             return -1;
         }
-        int mini=INT_MAX;
-        int maxi=INT_MIN;
+        int mini=bloomDay[0];
+        int maxi=bloomDay[0];
         for(int i=0;i<n;i++)
         {
             mini=min(mini,bloomDay[i]);
             maxi=max(maxi,bloomDay[i]);
         }
+        int ans=maxi;
         int low=mini;
         int high=maxi;
-        int ans=maxi;
         while(low<=high)
         {
-            int mid=(low+high)/2;
-            int bloom = func(bloomDay,mid,m,k);
+            int mid=low+(high-low)/2;
+            int bloom=func(bloomDay,mid,m,k);//no. of bouquets
             if(bloom>=m)
             {
                 ans=mid;
