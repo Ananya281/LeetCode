@@ -8,6 +8,7 @@ public:
             if(mountain[i]>mountain[i-1] && mountain[i]>mountain[i+1])
             {
                 result.push_back(i);
+                i++;
             }
         }
         return result;
