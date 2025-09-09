@@ -9,14 +9,14 @@ public:
         {
             int s=intervals[i][0];
             int e=intervals[i][1];
-            if(s<=temp[1])
-            {
-                temp[1]=max(e,temp[1]);
-            }
-            else
+            if(s>temp[1])
             {
                 result.push_back(temp);
                 temp=intervals[i];
+            }
+            else
+            {
+                temp[1]=max(temp[1],e);
             }
         }
         result.push_back(temp);
