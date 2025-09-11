@@ -1,9 +1,8 @@
-# Write your MySQL query statement below
-select
-    case
+select 
+    case 
         when id=(select max(id) from Seat) and mod(id,2)=1
             then id
-        when mod(id,2)=1
+        when mod(id,2)=1 
             then id+1
         else
             id-1
