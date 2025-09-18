@@ -1,39 +1,70 @@
 class Solution {
-public: 
-    int lowerbound(vector<int>&nums,int element)
+public:
+    int memo(int i,int prev,vector<vector<int>>&dp,vector<int>&nums)
     {
-        int low=0;
-        int high=nums.size();
-        while(low<=high)
+        if(i==nums.size())
         {
-            int mid=(low+high)/2;
-            if(nums[mid]>=element)
+            return 0;
+        }
+        if(dp[i][prev+1]!=-1)
+        {
+            return dp[i][prev+1];
+        }
+        int nottake=memo(i+1,prev,dp,nums);
+        int pick=INT_MIN;
+        if(prev==-1 || nums[prev]<nums[i])
+        {
+            pick=1+memo(i+1,i,dp,nums);
+        }
+        return dp[i][prev+1]=max(pick,nottake);
+    }
+    int tabu(int n,vector<vector<int>>&dp,vector<int>&nums)
+    {
+        for(int i=0;i<=n;i++)
+        {
+            dp[n][i]=0;
+        }
+        for(int i=n-1;i>=0;i--)
+        {
+            for(int j=i;j>=-1;j--)
             {
-                high=mid-1;
-            }
-            else
-            {
-                low=mid+1;
+                int nottake=dp[i+1][j+1];
+                int pick=INT_MIN;
+                if(j==-1 || nums[j]<nums[i])
+                {
+                    pick=1+dp[i+1][i+1];
+                }
+                dp[i][j+1]=max(pick,nottake);
             }
         }
-        return low;
+        return dp[0][0];
+    }
+    int space(int n,vector<int>&dp,vector<int>&nums)
+    {
+        for(int i=n-1;i>=0;i--)
+        {
+            vector<int>temp(n+1,0);
+            for(int j=i;j>=-1;j--)
+            {
+                int nottake=dp[j+1];
+                int pick=INT_MIN;
+                if(j==-1 || nums[j]<nums[i])
+                {
+                    pick=1+dp[i+1];
+                }
+                temp[j+1]=max(pick,nottake);
+            }
+            dp=temp;
+        }
+        return dp[0];
     }
     int lengthOfLIS(vector<int>& nums) {
         int n=nums.size();
-        vector<int>result;
-        result.push_back(nums[0]);
-        for(int i=1;i<n;i++)
-        {
-            if(nums[i]>result.back())
-            {
-                result.push_back(nums[i]);
-            }
-            else
-            {
-                int ind=lowerbound(result,nums[i]);
-                result[ind]=nums[i];
-            }
-        }   
-        return result.size();
+        // vector<vector<int>>dp(n,vector<int>(n+1,-1));
+        // return memo(0,-1,dp,nums);
+        // vector<vector<int>>dp(n+1,vector<int>(n+1,-1));
+        // return tabu(n,dp,nums);
+        vector<int>dp(n+1,0);
+        return space(n,dp,nums);
     }
 };
