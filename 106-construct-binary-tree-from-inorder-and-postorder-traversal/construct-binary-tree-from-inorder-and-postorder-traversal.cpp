@@ -13,7 +13,7 @@ class Solution {
 public:
     TreeNode* build(vector<int>&inorder,int instart,int inend,vector<int>&postorder,int poststart,int postend,map<int,int>&mpp)
     {
-        if(poststart>postend || instart>inend)
+        if(instart>inend || poststart>postend)
         {
             return NULL;
         }
