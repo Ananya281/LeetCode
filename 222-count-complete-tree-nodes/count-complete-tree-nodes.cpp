@@ -37,12 +37,12 @@ public:
         {
             return 0;
         }
-        int lh=getheight(root,true);
-        int rh=getheight(root,false);
-        if(lh==rh)
-        {
-            return pow(2,lh)-1;
-        }
+        // int lh=getheight(root,true);
+        // int rh=getheight(root,false);
+        // if(lh==rh)
+        // {
+        //     return pow(2,lh)-1;
+        // }
         return 1+countNodes(root->left)+countNodes(root->right);
     }
 };
