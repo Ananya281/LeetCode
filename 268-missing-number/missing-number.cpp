@@ -3,19 +3,15 @@ public:
     int missingNumber(vector<int>& nums) {
         int n=nums.size();
         map<int,int>mpp;
-        for(int i=0;i<=n;i++)
-        {
-            mpp[i]=0;
-        }
         for(int i=0;i<n;i++)
         {
-            mpp[nums[i]]++;
+            mpp[nums[i]]=i;
         }
-        for(auto it:mpp)
+        for(int i=0;i<=n;i++)
         {
-            if(it.second==0)
+            if(mpp.find(i)==mpp.end())
             {
-                return it.first;
+                return i;
             }
         }
         return -1;
