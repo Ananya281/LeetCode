@@ -9,7 +9,7 @@ public:
         }
         for(int i=1;i<=n+1;i++)
         {
-            if(mpp[i]==0)
+            if(mpp.find(i)==mpp.end())
             {
                 return i;
             }
