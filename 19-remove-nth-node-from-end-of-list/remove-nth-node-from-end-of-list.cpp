@@ -15,28 +15,34 @@ public:
         {
             return NULL;
         }
-        ListNode* temp=head;
-        int count=0;
-        while(temp!=NULL)
+        ListNode* slow=head;
+        ListNode* fast=head;
+        for(int i=0;i<n;i++)
         {
-            count++;
-            temp=temp->next;
+            fast=fast->next;
         }
-        int diff=count-n;
-        ListNode* prev=NULL;
-        if(diff==0)
+        if(fast==NULL)
         {
-            return head->next;
+            ListNode* newhead=head->next;
+            return newhead;
         }
-        temp=head;
-        while(diff>0)
+        while(fast->next!=NULL)
         {
-            diff--;
-            prev=temp;
-            temp=temp->next;
+            slow=slow->next;
+            fast=fast->next;
         }
-        prev->next=temp->next;
-        delete temp;
+        ListNode* delNode=slow->next;
+        slow->next=slow->next->next;
+        delete delNode;
         return head;
     }
 };
+
+// list of l nodes
+// delete nth node from end that means l-(n-1)th node from start
+// when fast is n step ahead of slow, there is n nodes between them 
+// both moves together
+// fast reach NULL(end) and slow will be at (l-n)th node
+// slow->next is target node
+// avoids traversal to find length
+// O(l) time complexity and O(1) space complexity
