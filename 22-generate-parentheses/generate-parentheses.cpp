@@ -1,16 +1,16 @@
 class Solution {
 public:
-    vector<string>result;
-    bool isvalid(string&str)
+    bool isvalid(string str)
     {
         int count=0;
-        for(auto it:str)
+        int n=str.size();
+        for(int i=0;i<n;i++)
         {
-            if(it=='(')
+            if(str[i]=='(')
             {
                 count++;
             }
-            else
+            else if(str[i]==')')
             {
                 count--;
             }
@@ -19,29 +19,33 @@ public:
                 return false;
             }
         }
-        return count==0;
-    }
-    void solve(string&curr,int n)
-    {
-        if(curr.size()==2*n)
+        if(count==0)
         {
-            if(isvalid(curr))
+            return true;
+        }
+        return false;
+    }
+    vector<string>result;
+    void count(string str,int n)
+    {
+        if(str.size()==2*n)
+        {
+            if(isvalid(str))
             {
-                result.push_back(curr);
+                result.push_back(str);
             }
             return;
         }
-        curr.push_back('(');
-        solve(curr,n);
-        curr.pop_back();
-
-        curr.push_back(')');
-        solve(curr,n);
-        curr.pop_back();
+        str.push_back('(');
+        count(str,n);
+        str.pop_back();
+        str.push_back(')');
+        count(str,n);
+        str.pop_back();
     }
     vector<string> generateParenthesis(int n) {
-        string curr="";
-        solve(curr,n);
+        string str="";
+        count(str,n);
         return result;
     }
 };
