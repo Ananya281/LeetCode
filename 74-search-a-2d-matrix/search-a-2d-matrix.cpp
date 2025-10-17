@@ -1,5 +1,8 @@
 class Solution {
 public:
+    //Staircase Search (Top-Right Search)
+    //Time Complexity O(n+m)
+    //Space Complexity O(1)
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int n=matrix.size();
         int m=matrix[0].size();
