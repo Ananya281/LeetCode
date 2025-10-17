@@ -1,28 +1,36 @@
 class Solution {
 public:
-    //Staircase Search (Top-Right Search)
-    //Time Complexity O(n+m)
-    //Space Complexity O(1)
+    //Binary Search
+    //mid/m gives row index
+    //mid%m gives col index
+    //O(log(m*n)) time complexity faster approach logarithmic time 
+    //O(1) space complexity
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int n=matrix.size();
         int m=matrix[0].size();
-        int i=0;
-        int j=m-1;
-        while(i<n && j>=0)
+        int low=0;
+        int high=m*n-1;
+        while(low<=high)
         {
-            if(matrix[i][j]==target)
+            int mid=(low+high)/2;
+            int row=mid/m;
+            int col=mid%m;
+            if(matrix[row][col]==target)
             {
                 return true;
             }
-            else if(matrix[i][j]>target)
+            else if(matrix[row][col]>target)
             {
-                j--;
+                high=mid-1;
             }
             else
             {
-                i++;
+                low=mid+1;
             }
         }
         return false;
     }
 };
+
+//if the matrix is row-sorted and col-sorted but not necessarily strictly increasing row-wise then apply Stairecase Method
+//if matrix satisfies strictly increasing row-major order then apply Binary Search, for optimal speed
