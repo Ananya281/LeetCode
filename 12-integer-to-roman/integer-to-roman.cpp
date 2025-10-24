@@ -4,7 +4,7 @@ public:
         vector<pair<string, int>> mpp = {
             {"M", 1000}, {"CM", 900}, {"D", 500}, {"CD", 400},
             {"C", 100}, {"XC", 90}, {"L", 50}, {"XL", 40},
-            {"X", 10}, {"IX", 9}, {"V", 5}, {"IV", 4}, {"I", 1}
+            {"X", 10}, {"IX", 9}, {"V", 5}, {"IV", 4}, {"I", 1}//13
         };
         string result;
         for(auto it:mpp)
@@ -24,3 +24,8 @@ public:
         return result;
     }
 };
+
+
+// if used unordered_map then it gives random order
+// if used ordered_map then it will sort it into lexographically not by numbers
+// so best to used vector containing pairs
