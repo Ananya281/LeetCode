@@ -1,28 +1,32 @@
 class Solution {
 public:
-    void recurr(int i,vector<vector<int>>&result,vector<int>&temp,vector<int>&candidates,int target)
+    void recursion(int i, vector<vector<int>>&result,vector<int>&temp,vector<int>&candidates,int target)
     {
-        if(i==candidates.size())
-        {
+        int n=candidates.size();
+
+            if(i==n)
+            {
+                return;
+            }
             if(target==0)
             {
                 result.push_back(temp);
+                return;
             }
-            return;
-        }
-        recurr(i+1,result,temp,candidates,target);
-        if(candidates[i]<=target)
+        recursion(i+1,result,temp,candidates,target);//nonpick
+        if(candidates[i]<=target)//pick
         {
             temp.push_back(candidates[i]);
-            recurr(i,result,temp,candidates,target-candidates[i]);
+            recursion(i,result,temp,candidates,target-candidates[i]);
             temp.pop_back();
         }
+
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        int n=candidates.size();
         vector<vector<int>>result;
         vector<int>temp;
-        recurr(0,result,temp,candidates,target);
+        int n=candidates.size();
+        recursion(0,result,temp,candidates,target);
         return result;
     }
 };
