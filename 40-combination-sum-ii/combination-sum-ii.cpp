@@ -1,34 +1,74 @@
 class Solution {
 public:
-    void find(int ind,int target,vector<int>&candidates,vector<int>&ans,vector<vector<int>>&result)
+    void recursion(int i,vector<vector<int>>&result,vector<int>&temp,vector<int>&candidates,int target)
     {
-        int n=candidates.size();
         if(target==0)
         {
-            result.push_back(ans);
+            result.push_back(temp);
             return;
         }
-        for(int i=ind;i<n;i++)
+        for(int j=i;j<candidates.size();j++)
         {
-            if(i!=ind && candidates[i]==candidates[i-1])
+            if(i!=j && candidates[j]==candidates[j-1])
             {
                 continue;
             }
-            if(candidates[i]>target)
+            if(candidates[j]>target)
             {
                 break;
             }
-            ans.push_back(candidates[i]);
-            find(i+1,target-candidates[i],candidates,ans,result);
-            ans.pop_back();
+            temp.push_back(candidates[j]);//pick
+            recursion(j+1,result,temp,candidates,target-candidates[j]);
+            temp.pop_back();
         }
     }
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         int n=candidates.size();
         sort(candidates.begin(),candidates.end());
-        vector<int>ans;
         vector<vector<int>>result;
-        find(0,target,candidates,ans,result);
+        vector<int>temp;
+        recursion(0,result,temp,candidates,target);
         return result;
     }
 };
+
+
+// Without the if condition
+// At the first recursion call (i = 0):
+// j = 0 → pick 1
+// j = 1 → pick 1 again (duplicate)
+
+// Both 1s are identical, so the recursive calls will explore exactly the same subtree, generating duplicate combinations like:
+
+// [1,2,5]
+// [1,2,5]  ← duplicate
+
+
+// With the condition
+// When i = 0 and j = 1,
+// we check:
+// if (i != j && candidates[j] == candidates[j-1])
+
+// → true (1 == 1) → skip this duplicate.
+
+// So only the first occurrence of 1 is used to start recursion at that level.
+
+
+// For sorted input:
+// [1, 1, 2, 5, 6, 7, 10]
+
+// At i = 0 (start of recursion):
+// j = 0 → pick first 1 ✅
+// j = 1 → second 1, but i != j and same as previous → skip ❌
+
+// At i = 1 (deeper recursion):
+// j = 1 → pick second 1 ✅ (allowed now, because it's in deeper recursion level
+// This gives valid combinations like [1,1,6] but avoids duplicates like [1,2,5] appearing twice.
+
+
+// Why i != j is important
+// We only skip duplicates within the same recursion depth.
+// When i == j, it means we’re picking the first element of this level — don’t skip.
+// When i != j, it means we’re iterating further in the same level — skip duplicates.
+
+// This ensures that duplicate numbers can still appear in deeper levels (like [1,1,6] is valid) but not as different branches starting from the same level.
