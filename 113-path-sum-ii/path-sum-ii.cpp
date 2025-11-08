@@ -11,26 +11,23 @@
  */
 class Solution {
 public:
-    void getsum(TreeNode*root,int targetsum, vector<int>&arr, vector<vector<int>>&result)
+    void path(TreeNode* root,int targetSum,vector<vector<int>>&result,vector<int>&temp)
     {
         if(root==NULL)
         {
             return;
         }
-        arr.push_back(root->val);
-        if(root->left==NULL && root->right==NULL)
+        temp.push_back(root->val);
+        if(root->left==NULL && root->right==NULL && targetSum==root->val)
         {
-            if(root->val==targetsum)
-            {
-                result.push_back(arr);
-            }
+            result.push_back(temp);
         }
         else
         {
-            getsum(root->left,targetsum-root->val,arr,result);
-            getsum(root->right,targetsum-root->val,arr,result);
+            path(root->left,targetSum-root->val,result,temp);
+            path(root->right,targetSum-root->val,result,temp);
         }
-        arr.pop_back();
+        temp.pop_back();
     }
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
         vector<vector<int>>result;
@@ -38,8 +35,8 @@ public:
         {
             return result;
         }
-        vector<int>arr;
-        getsum(root,targetSum,arr,result);
+        vector<int>temp;
+        path(root,targetSum,result,temp);
         return result;
     }
 };
