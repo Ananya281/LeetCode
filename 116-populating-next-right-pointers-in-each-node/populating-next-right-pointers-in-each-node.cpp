@@ -21,13 +21,13 @@ public:
     Node* connect(Node* root) {
         if(root==NULL)
         {
-            return NULL;
+            return root;
         }
-        if(root->left!=NULL)
+        if(root->left)
         {
             root->left->next=root->right;
         }
-        if(root->right!=NULL && root->next!=NULL)
+        if(root->right && root->next)
         {
             root->right->next=root->next->left;
         }
