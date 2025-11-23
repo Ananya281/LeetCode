@@ -12,39 +12,48 @@
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        vector<int>inorder;
         if(root==NULL)
         {
-            return inorder;
-        }
-        TreeNode*curr=root;
-        while(curr!=NULL)
+            return {};
+        }   
+        TreeNode* curr=root;
+        vector<int>result;
+        while(curr)
         {
-            if(curr->left==NULL)
+            if(!curr->left)
             {
-                inorder.push_back(curr->val);
+                result.push_back(curr->val);
                 curr=curr->right;
             }
             else
             {
-                TreeNode*prev=curr->left;
-                while(prev->right!=NULL && prev->right!=curr)
+                TreeNode* prev=curr->left;
+                while(prev->right && prev->right!=curr)
                 {
                     prev=prev->right;
                 }
-                if(prev->right==NULL)
+                if(!prev->right)
                 {
                     prev->right=curr;
                     curr=curr->left;
                 }
                 else
-                {   
+                {
                     prev->right=NULL;
-                    inorder.push_back(curr->val);
+                    result.push_back(curr->val);
                     curr=curr->right;
                 }
-            }   
+            }
         }
-        return inorder;
+        return result;
     }
 };
+
+//left root right inorder 
+//right jane se phle push karna 
+//left hat gya root push and go right 
+
+
+//root left right preorder
+//left jane se phle push karna
+//left hat gya root ke baad right jana 
