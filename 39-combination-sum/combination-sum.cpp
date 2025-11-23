@@ -36,3 +36,7 @@ public:
 // You want to check for a valid combination (target == 0) before stopping recursion due to i == n.
 
 // If target == 0 happens at the same time as i == n, and your code checks i == n first, it will return before adding the valid combination.
+
+// O(k*2^T) where k is average length of temp and T is target sum
+
+// O(k*2^T)+O(T) space complexity where O(T) is Auxilliary Space that is recursion depth
