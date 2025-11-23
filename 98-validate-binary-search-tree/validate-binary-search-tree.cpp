@@ -11,22 +11,29 @@
  */
 class Solution {
 public:
-    bool isBST(TreeNode* root,long long lower, long long higher)
+bool BST(TreeNode* root,long long lower,long long higher)
+{
+    if(root==NULL)
     {
+        return true;
+    }
+    if(root->val<=lower || root->val>=higher)
+    {
+        return false;
+    }
+    return BST(root->left,lower,root->val) && BST(root->right,root->val,higher);
+}
+    bool isValidBST(TreeNode* root) {
         if(root==NULL)
         {
             return true;
         }
-        if(root->val<=lower || root->val>=higher)
-        {
-            return false;
-        }
-        return isBST(root->left, lower, root->val)&&isBST(root->right,root->val,higher);
-    }
-    bool isValidBST(TreeNode* root) 
-    {
-        long long lower=LONG_MIN;
-        long long higher=LONG_MAX;
-        return isBST(root,lower,higher);
+        long long int lower=LLONG_MIN;
+        long long int higher=LLONG_MAX;
+        return BST(root,lower,higher);
     }
 };
+
+
+//lower < root->val < higher 
+//strictly bola hai then equal to not include
