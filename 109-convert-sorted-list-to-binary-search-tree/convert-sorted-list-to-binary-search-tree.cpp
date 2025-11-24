@@ -23,20 +23,22 @@ class Solution {
 public:
 TreeNode* sortlist(ListNode* start, ListNode* end)
 {
-    if(start==end)
+    if(start==end)//base case
     {
         return NULL;
     }
+    //initialise two pointers
     ListNode* slow=start;
     ListNode* fast=start;
-    while(fast!=end && fast->next!=end)
+    while(fast!=end && fast->next!=end)//find mid
     {
         slow=slow->next;
         fast=fast->next->next;
     }
-    TreeNode* root=new TreeNode(slow->val);
-    root->left=sortlist(start,slow);
-    root->right=sortlist(slow->next,end);
+    //slow points to mid
+    TreeNode* root=new TreeNode(slow->val);//root bana lia since mid mil gya //0
+    root->left=sortlist(start,slow);//left connection
+    root->right=sortlist(slow->next,end);//right connection
     return root;
 }
     TreeNode* sortedListToBST(ListNode* head) {
@@ -44,7 +46,9 @@ TreeNode* sortlist(ListNode* start, ListNode* end)
         {
             return NULL;
         }
-        TreeNode* node=sortlist(head,NULL);
+        TreeNode* node=sortlist(head,NULL);//start, end
         return node;
     }
 };
+
+// list sorted hai, inorder mil jayega
