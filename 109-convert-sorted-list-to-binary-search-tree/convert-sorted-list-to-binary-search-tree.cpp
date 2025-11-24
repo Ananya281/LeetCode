@@ -52,3 +52,9 @@ TreeNode* sortlist(ListNode* start, ListNode* end)
 };
 
 // list sorted hai, inorder mil jayega
+//slow fast pointer se mid find krna, list traverse krna, O(N) time lagega
+// tree banega balanced, on every level O(N) total operation
+// no of levels=height=logN
+// so O(NlogN) total time complexity
+
+//space complexity O(logN) recursion depth auxiliary depth
